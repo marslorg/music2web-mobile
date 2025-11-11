@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace Music2Web
 {
@@ -8,6 +9,7 @@ namespace Music2Web
         {
             var builder = MauiApp.CreateBuilder();
             builder
+                .ConfigureSyncfusionToolkit()
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {

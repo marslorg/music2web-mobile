@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:navigationDrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
+             x:Class="Music2Web.Navigation.NavigationView"
+             Title="NavigationView">
+    <navigationDrawer:SfNavigationDrawer x:Name="navigationDrawer">
+        <navigationDrawer:SfNavigationDrawer.ContentView>
+            <Grid x:Name="mainContentView"
+                  BackgroundColor="White" RowDefinitions="Auto, *">
+                <HorizontalStackLayout BackgroundColor="#e00000">
+                    <Button x:Name="hamburgerButton"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            HorizontalOptions="Start"
+                            Text="☰"
+                            FontSize="30"
+                            TextColor="#ffffff"
+                            BackgroundColor="#e00000"
+                            Clicked="hamburgerButton_Clicked" />
+                </HorizontalStackLayout>
+                <Label Grid.Row="1"
+                       x:Name="contentLabel"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Text="Content View"
+                       FontSize="14"
+                       TextColor="Black" />
+            </Grid>
+        </navigationDrawer:SfNavigationDrawer.ContentView>
+    </navigationDrawer:SfNavigationDrawer>
+</ContentPage>
