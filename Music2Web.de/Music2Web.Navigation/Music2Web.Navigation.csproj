@@ -67,4 +67,12 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Adapters\" />
+	  <Folder Include="Core\" />
+	  <Folder Include="Ports\Drivers\" />
+	  <Folder Include="ValueObjects\" />
+	  <Folder Include="Ports\Driven\" />
+	</ItemGroup>
+
 </Project>

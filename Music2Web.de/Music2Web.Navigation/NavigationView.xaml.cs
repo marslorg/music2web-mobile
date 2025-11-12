@@ -2,13 +2,12 @@ namespace Music2Web.Navigation;
 
 public partial class NavigationView : ContentPage
 {
-	public NavigationView()
+	public NavigationView(INavigationViewModel viewModel)
 	{
-		InitializeComponent();
-	}
+		this.InitializeComponent();
 
-	private void hamburgerButton_Clicked(object sender, EventArgs e)
-	{
-		navigationDrawer.ToggleDrawer();
+		this.BindingContext = viewModel;
+		
+		viewModel.NavigationDrawer = this.navigationDrawer;
     }
 }

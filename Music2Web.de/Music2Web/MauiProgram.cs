@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Music2Web.Navigation;
 using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace Music2Web
@@ -15,7 +16,8 @@ namespace Music2Web
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .ConfigureNavigation();
 
 #if DEBUG
     		builder.Logging.AddDebug();
