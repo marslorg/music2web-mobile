@@ -8,7 +8,7 @@ namespace Music2Web.Navigation.Internal
     {
         public NavigationViewModel()
         {
-            this.ToggleDrawerCommand = new Command(() => ExecuteToggleDrawerCommand());
+            this.ToggleDrawerCommand = new Command(ExecuteToggleDrawerCommand);
         }
 
         public ICommand ToggleDrawerCommand { get; }

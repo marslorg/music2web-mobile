@@ -7,11 +7,22 @@
              x:DataType="viewModel:INavigationViewModel"
              Title="NavigationView">
     <navigationDrawer:SfNavigationDrawer x:Name="navigationDrawer">
+        <navigationDrawer:SfNavigationDrawer.DrawerSettings>
+            <navigationDrawer:DrawerSettings DrawerWidth="240">
+                <navigationDrawer:DrawerSettings.DrawerHeaderView>
+                    <Image Source="logo.png"
+                           HeightRequest="32"
+                           WidthRequest="202"
+                           HorizontalOptions="Center" />
+                </navigationDrawer:DrawerSettings.DrawerHeaderView>
+            </navigationDrawer:DrawerSettings>
+        </navigationDrawer:SfNavigationDrawer.DrawerSettings>
         <navigationDrawer:SfNavigationDrawer.ContentView>
             <Grid x:Name="mainContentView"
-                  BackgroundColor="White" RowDefinitions="Auto, *">
-                <HorizontalStackLayout BackgroundColor="#e00000">
-                    <Button x:Name="hamburgerButton"
+                  BackgroundColor="White" RowDefinitions="Auto,*">
+                <Grid Grid.Row="0" BackgroundColor="#e00000" ColumnDefinitions="Auto,*">
+                    <Button Grid.Column="0"
+                            x:Name="hamburgerButton"
                             HeightRequest="50"
                             WidthRequest="50"
                             HorizontalOptions="Start"
@@ -20,12 +31,17 @@
                             TextColor="#ffffff"
                             BackgroundColor="#e00000"
                             Command="{Binding ToggleDrawerCommand}" />
-                </HorizontalStackLayout>
+                    <Image  Grid.Column="1"
+                            Source="header.png"
+                            HeightRequest="50"
+                            WidthRequest="152"
+                            HorizontalOptions="Center" />
+                </Grid>
                 <Label Grid.Row="1"
                        x:Name="contentLabel"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Text="Content View"
+                       Text="Main Content"
                        FontSize="14"
                        TextColor="Black" />
             </Grid>
