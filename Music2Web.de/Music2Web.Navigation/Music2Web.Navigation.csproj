@@ -68,10 +68,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Adapters\" />
+	  <Folder Include="Adapters\Driven\Implementation\" />
+	  <Folder Include="Adapters\Driven\Mock\" />
+	  <Folder Include="Adapters\Drivers\" />
 	  <Folder Include="Core\" />
 	  <Folder Include="Ports\Drivers\" />
-	  <Folder Include="ValueObjects\" />
 	  <Folder Include="Ports\Driven\" />
 	</ItemGroup>
 

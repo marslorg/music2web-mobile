@@ -1,4 +1,6 @@
-﻿using Syncfusion.Maui.Toolkit.NavigationDrawer;
+﻿using Music2Web.Navigation.DataModels;
+using Syncfusion.Maui.Toolkit.NavigationDrawer;
+using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Windows.Input;
 
@@ -9,5 +11,7 @@ namespace Music2Web.Navigation
         public ICommand ToggleDrawerCommand { get; }
 
         public SfNavigationDrawer? NavigationDrawer { set; }
+
+        public IImmutableList<NavigationItem> Navigation { get; }
     }
 }

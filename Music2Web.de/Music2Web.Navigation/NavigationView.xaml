@@ -1,20 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
              xmlns:navigationDrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
              xmlns:viewModel="clr-namespace:Music2Web.Navigation"
+             xmlns:model="clr-namespace:Music2Web.Navigation.DataModels"
              x:Class="Music2Web.Navigation.NavigationView"
              x:DataType="viewModel:INavigationViewModel"
              Title="NavigationView">
     <navigationDrawer:SfNavigationDrawer x:Name="navigationDrawer">
         <navigationDrawer:SfNavigationDrawer.DrawerSettings>
-            <navigationDrawer:DrawerSettings DrawerWidth="240">
+            <navigationDrawer:DrawerSettings DrawerWidth="240"
+                                             ContentBackground="White">
                 <navigationDrawer:DrawerSettings.DrawerHeaderView>
                     <Image Source="logo.png"
                            HeightRequest="32"
                            WidthRequest="202"
                            HorizontalOptions="Center" />
                 </navigationDrawer:DrawerSettings.DrawerHeaderView>
+                <navigationDrawer:DrawerSettings.DrawerContentView>
+                    <ListView x:Name="listView"
+                              ItemsSource="{Binding Navigation}"
+                              BackgroundColor="White"
+                              SeparatorVisibility="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="model:NavigationItem">
+                                <ViewCell>
+                                    <VerticalStackLayout>
+                                        <buttons:SfButton x:Name="navigationButton"
+                                                WidthRequest="202"
+                                                HorizontalTextAlignment="Start"
+                                                Text="{Binding NavigationItemName.Value}"
+                                                FontSize="16"
+                                                TextColor="#e00000"
+                                                Background="White"
+                                                CornerRadius="0" />
+                                    </VerticalStackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </navigationDrawer:DrawerSettings.DrawerContentView>
             </navigationDrawer:DrawerSettings>
         </navigationDrawer:SfNavigationDrawer.DrawerSettings>
         <navigationDrawer:SfNavigationDrawer.ContentView>
