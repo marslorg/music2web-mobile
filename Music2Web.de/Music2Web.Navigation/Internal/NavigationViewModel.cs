@@ -1,4 +1,5 @@
 ﻿using Music2Web.Navigation.DataModels;
+using Music2Web.Navigation.ValueObjects;
 using Syncfusion.Maui.Toolkit.NavigationDrawer;
 using System.Collections.Immutable;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ namespace Music2Web.Navigation.Internal
     {
         public NavigationViewModel()
         {
-            this.ToggleDrawerCommand = new Command(ExecuteToggleDrawerCommand);
+            this.ToggleDrawerCommand = new Command(ToggleDrawer);
         }
 
         public ICommand ToggleDrawerCommand { get; }
@@ -21,7 +22,14 @@ namespace Music2Web.Navigation.Internal
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private void ExecuteToggleDrawerCommand()
+        public void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            this.NavigationDrawer.ToggleDrawer();
+            var selectedNavigationItem = args.SelectedItem as NavigationItem;
+            Console.WriteLine(selectedNavigationItem.NavigationItemTarget.Value.AbsoluteUri);
+        }
+
+        private void ToggleDrawer()
         {
             if (this.NavigationDrawer is not null)
             {

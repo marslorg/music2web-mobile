@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:buttons="clr-namespace:Syncfusion.Maui.Toolkit.Buttons;assembly=Syncfusion.Maui.Toolkit"
              xmlns:navigationDrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
              xmlns:viewModel="clr-namespace:Music2Web.Navigation"
              xmlns:model="clr-namespace:Music2Web.Navigation.DataModels"
@@ -21,21 +20,20 @@
                 <navigationDrawer:DrawerSettings.DrawerContentView>
                     <ListView x:Name="listView"
                               ItemsSource="{Binding Navigation}"
+                              ItemSelected="OnNavigationItemSelected"
                               BackgroundColor="White"
-                              SeparatorVisibility="None">
+                              SeparatorVisibility="None"
+                              SeparatorColor="White">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="model:NavigationItem">
                                 <ViewCell>
-                                    <VerticalStackLayout>
-                                        <buttons:SfButton x:Name="navigationButton"
-                                                WidthRequest="202"
-                                                HorizontalTextAlignment="Start"
-                                                Text="{Binding NavigationItemName.Value}"
-                                                FontSize="16"
-                                                TextColor="#e00000"
-                                                Background="White"
-                                                CornerRadius="0" />
-                                    </VerticalStackLayout>
+                                    <Grid>
+                                        <Label Margin="19,7,0,0"
+                                               Text="{Binding NavigationItemName.Value}"
+                                               FontSize="16"
+                                               TextColor="#e00000"
+                                               BackgroundColor="White" />
+                                    </Grid>
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>

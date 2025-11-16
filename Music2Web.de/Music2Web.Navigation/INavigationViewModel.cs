@@ -13,5 +13,7 @@ namespace Music2Web.Navigation
         public SfNavigationDrawer? NavigationDrawer { set; }
 
         public IImmutableList<NavigationItem> Navigation { get; }
+
+        public void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs args);
     }
 }
