@@ -9,6 +9,8 @@ namespace Music2Web.Navigation.Internal
 {
     internal class NavigationViewModel : INavigationViewModel
     {
+        private NavigationItem? selectedNavigationItem;
+
         public NavigationViewModel()
         {
             this.ToggleDrawerCommand = new Command(ToggleDrawer);
@@ -24,9 +26,14 @@ namespace Music2Web.Navigation.Internal
 
         public void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            if (this.selectedNavigationItem != null)
+            {
+                this.selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#ffffff");
+            }
+
             this.NavigationDrawer.ToggleDrawer();
-            var selectedNavigationItem = args.SelectedItem as NavigationItem;
-            Console.WriteLine(selectedNavigationItem.NavigationItemTarget.Value.AbsoluteUri);
+            this.selectedNavigationItem = args.SelectedItem as NavigationItem;
+            this.selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#e0c0c0");
         }
 
         private void ToggleDrawer()

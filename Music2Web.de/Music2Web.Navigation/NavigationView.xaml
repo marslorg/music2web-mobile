@@ -23,16 +23,18 @@
                               ItemSelected="OnNavigationItemSelected"
                               BackgroundColor="White"
                               SeparatorVisibility="None"
-                              SeparatorColor="White">
+                              SeparatorColor="White"
+                              RefreshControlColor="White">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="model:NavigationItem">
                                 <ViewCell>
-                                    <Grid>
-                                        <Label Margin="19,7,0,0"
+                                    <Grid BackgroundColor="{Binding SelectedBackgroundColor}">
+                                        <Label Margin="19,0,0,0"
+                                               HeightRequest="30"
+                                               VerticalTextAlignment="Center"
                                                Text="{Binding NavigationItemName.Value}"
                                                FontSize="16"
-                                               TextColor="#e00000"
-                                               BackgroundColor="White" />
+                                               TextColor="#e00000" />
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
