@@ -24,7 +24,7 @@ namespace Music2Web.Navigation.Internal
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs args)
+        public void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args)
         {
             if (this.selectedNavigationItem != null)
             {
@@ -32,7 +32,7 @@ namespace Music2Web.Navigation.Internal
             }
 
             this.NavigationDrawer.ToggleDrawer();
-            this.selectedNavigationItem = args.SelectedItem as NavigationItem;
+            this.selectedNavigationItem = args.CurrentSelection.FirstOrDefault() as NavigationItem;
             this.selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#e0c0c0");
         }
 

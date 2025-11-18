@@ -18,28 +18,24 @@
                            HorizontalOptions="Center" />
                 </navigationDrawer:DrawerSettings.DrawerHeaderView>
                 <navigationDrawer:DrawerSettings.DrawerContentView>
-                    <ListView x:Name="listView"
-                              ItemsSource="{Binding Navigation}"
-                              ItemSelected="OnNavigationItemSelected"
-                              BackgroundColor="White"
-                              SeparatorVisibility="None"
-                              SeparatorColor="White"
-                              RefreshControlColor="White">
-                        <ListView.ItemTemplate>
+                    <CollectionView x:Name="collectionView"
+                                    ItemsSource="{Binding Navigation}"
+                                    SelectionMode="Single"
+                                    SelectionChanged="OnNavigationItemSelected"
+                                    BackgroundColor="White">
+                        <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:NavigationItem">
-                                <ViewCell>
-                                    <Grid BackgroundColor="{Binding SelectedBackgroundColor}">
-                                        <Label Margin="19,0,0,0"
-                                               HeightRequest="30"
-                                               VerticalTextAlignment="Center"
-                                               Text="{Binding NavigationItemName.Value}"
-                                               FontSize="16"
-                                               TextColor="#e00000" />
-                                    </Grid>
-                                </ViewCell>
+                                <Grid BackgroundColor="{Binding SelectedBackgroundColor}">
+                                    <Label Margin="19,0,0,0"
+                                                   HeightRequest="30"
+                                                   VerticalTextAlignment="Center"
+                                                   Text="{Binding NavigationItemName.Value}"
+                                                   FontSize="16"
+                                                   TextColor="#e00000" />
+                                </Grid>
                             </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </navigationDrawer:DrawerSettings.DrawerContentView>
             </navigationDrawer:DrawerSettings>
         </navigationDrawer:SfNavigationDrawer.DrawerSettings>
@@ -67,7 +63,7 @@
                        x:Name="contentLabel"
                        VerticalOptions="Center"
                        HorizontalOptions="Center"
-                       Text="Main Content"
+                       Text="Test Content"
                        FontSize="14"
                        TextColor="Black" />
             </Grid>

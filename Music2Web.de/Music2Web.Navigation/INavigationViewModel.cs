@@ -14,6 +14,6 @@ namespace Music2Web.Navigation
 
         public IImmutableList<NavigationItem> Navigation { get; }
 
-        public void OnNavigationItemSelected(object sender, SelectedItemChangedEventArgs args);
+        public void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args);
     }
 }
