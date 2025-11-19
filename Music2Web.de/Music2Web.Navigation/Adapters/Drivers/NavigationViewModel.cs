@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.ComponentModel;
 using System.Windows.Input;
 
-namespace Music2Web.Navigation.Internal
+namespace Music2Web.Navigation.Adapters.Drivers
 {
     internal class NavigationViewModel : INavigationViewModel
     {
@@ -13,7 +13,7 @@ namespace Music2Web.Navigation.Internal
 
         public NavigationViewModel()
         {
-            this.ToggleDrawerCommand = new Command(ToggleDrawer);
+            ToggleDrawerCommand = new Command(ToggleDrawer);
         }
 
         public ICommand ToggleDrawerCommand { get; }
@@ -26,21 +26,21 @@ namespace Music2Web.Navigation.Internal
 
         public void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args)
         {
-            if (this.selectedNavigationItem != null)
+            if (selectedNavigationItem != null)
             {
-                this.selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#ffffff");
+                selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#ffffff");
             }
 
-            this.NavigationDrawer.ToggleDrawer();
-            this.selectedNavigationItem = args.CurrentSelection.FirstOrDefault() as NavigationItem;
-            this.selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#e0c0c0");
+            NavigationDrawer.ToggleDrawer();
+            selectedNavigationItem = args.CurrentSelection.FirstOrDefault() as NavigationItem;
+            selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#e0c0c0");
         }
 
         private void ToggleDrawer()
         {
-            if (this.NavigationDrawer is not null)
+            if (NavigationDrawer is not null)
             {
-                this.NavigationDrawer.ToggleDrawer();
+                NavigationDrawer.ToggleDrawer();
             }
         }
     }

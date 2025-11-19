@@ -2,7 +2,7 @@
 using Music2Web.Navigation.ValueObjects;
 using System.Collections.Immutable;
 
-namespace Music2Web.Navigation.Internal
+namespace Music2Web.Navigation.Adapters.Drivers
 {
     internal class NavigationViewModelFactory : INavigationViewModelFactory
     {

@@ -81,6 +81,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\Music2Web.HttpService\Music2Web.HttpService.csproj" />
 	  <ProjectReference Include="..\Music2Web.Navigation\Music2Web.Navigation.csproj" />
 	</ItemGroup>
 

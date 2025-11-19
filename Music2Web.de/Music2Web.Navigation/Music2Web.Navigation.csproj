@@ -70,10 +70,13 @@
 	<ItemGroup>
 	  <Folder Include="Adapters\Driven\Implementation\" />
 	  <Folder Include="Adapters\Driven\Mock\" />
-	  <Folder Include="Adapters\Drivers\" />
 	  <Folder Include="Core\" />
 	  <Folder Include="Ports\Drivers\" />
 	  <Folder Include="Ports\Driven\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Music2Web.HttpService\Music2Web.HttpService.csproj" />
 	</ItemGroup>
 
 </Project>
