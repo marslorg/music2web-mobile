@@ -1,4 +1,4 @@
 ﻿namespace Music2Web.Navigation.ValueObjects
 {
-    public record NavigationItemTarget(Uri Value);
+    public record NavigationItemTarget(string Value);
 }

@@ -13,9 +13,6 @@ namespace Music2Web
             InitializeComponent();
         }
 
-        protected override Window CreateWindow(IActivationState? activationState)
-        {
-            return new Window(new NavigationView(this.navigationViewModelFactory.CreateViewModel()));
-        }
+        protected override Window CreateWindow(IActivationState? activationState) => new(new NavigationView(this.navigationViewModelFactory.CreateViewModelAsync().Result));
     }
 }

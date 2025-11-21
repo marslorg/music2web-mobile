@@ -8,7 +8,7 @@ namespace Music2Web.HttpService.Adapters.Driven.Implementation
 {
     internal class HttpClientAdapter : IHttpClientAdapter
     {
-        public async ValueTask<HttpResponseContent> GetAsync(Uri uri, UserName? userName, Password? password)
+        public async ValueTask<string> GetAsync(Uri uri, UserName? userName, Password? password)
         {
             var httpClient = new HttpClient();
             var requestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
@@ -23,9 +23,9 @@ namespace Music2Web.HttpService.Adapters.Driven.Implementation
                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
             }
 
-            var responseMessage = await httpClient.SendAsync(requestMessage);
+            var responseMessage = await httpClient.SendAsync(requestMessage).ConfigureAwait(false);
 
-            return new HttpResponseContent(await responseMessage.Content.ReadAsStreamAsync());
+            return await responseMessage.Content.ReadAsStringAsync();
         }
 
         private string ComputeHmacSha512(string message, string key)

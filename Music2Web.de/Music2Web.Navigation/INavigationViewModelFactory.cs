@@ -2,6 +2,6 @@
 {
     public interface INavigationViewModelFactory
     {
-        public INavigationViewModel CreateViewModel();
+        public ValueTask<INavigationViewModel> CreateViewModelAsync();
     }
 }
