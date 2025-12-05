@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Music2Web.Content;
+using Music2Web.Cryptography;
 using Music2Web.HttpService;
 using Music2Web.Navigation;
 using Syncfusion.Maui.Toolkit.Hosting;
@@ -18,6 +20,8 @@ namespace Music2Web
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 })
+                .ConfigureContent()
+                .ConfigureCryptography()
                 .ConfigureNavigation()
                 .ConfigureHttpService();
 

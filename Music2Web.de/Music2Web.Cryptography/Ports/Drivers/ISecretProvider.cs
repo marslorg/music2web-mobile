@@ -1,6 +1,6 @@
-﻿using Music2Web.HttpService.ValueObjects;
+﻿using Music2Web.Cryptography.ValueObjects;
 
-namespace Music2Web.HttpService.Ports.Drivers
+namespace Music2Web.Cryptography.Ports.Drivers
 {
     internal interface ISecretProvider
     {

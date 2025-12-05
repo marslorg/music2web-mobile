@@ -1,6 +1,6 @@
 ﻿using Music2Web.HttpService.Ports.Driven;
 using Music2Web.HttpService.Ports.Drivers;
-using Music2Web.HttpService.ValueObjects;
+using Music2Web.Cryptography.ValueObjects;
 using System.Text.Json;
 
 namespace Music2Web.HttpService.Core

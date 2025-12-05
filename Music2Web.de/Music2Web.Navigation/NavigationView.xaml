@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:navigationDrawer="clr-namespace:Syncfusion.Maui.Toolkit.NavigationDrawer;assembly=Syncfusion.Maui.Toolkit"
+             xmlns:content="clr-namespace:Music2Web.Content;assembly=Music2Web.Content"
              xmlns:viewModel="clr-namespace:Music2Web.Navigation"
              xmlns:model="clr-namespace:Music2Web.Navigation.DataModels"
              x:Class="Music2Web.Navigation.NavigationView"
@@ -59,13 +60,7 @@
                             WidthRequest="152"
                             HorizontalOptions="Center" />
                 </Grid>
-                <Label Grid.Row="1"
-                       x:Name="contentLabel"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center"
-                       Text="Test Content"
-                       FontSize="14"
-                       TextColor="Black" />
+                <content:Music2WebView Grid.Row="1" />
             </Grid>
         </navigationDrawer:SfNavigationDrawer.ContentView>
     </navigationDrawer:SfNavigationDrawer>

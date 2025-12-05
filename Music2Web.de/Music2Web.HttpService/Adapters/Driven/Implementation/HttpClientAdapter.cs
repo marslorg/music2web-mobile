@@ -1,12 +1,12 @@
-﻿using Music2Web.HttpService.Ports.Driven;
-using Music2Web.HttpService.ValueObjects;
+﻿using Music2Web.Cryptography;
+using Music2Web.Cryptography.ValueObjects;
+using Music2Web.HttpService.Ports.Driven;
 using System.Net.Http.Headers;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace Music2Web.HttpService.Adapters.Driven.Implementation
 {
-    internal class HttpClientAdapter : IHttpClientAdapter
+    internal class HttpClientAdapter(ISymmetricMessageSigner symmetricMessageSigner) : IHttpClientAdapter
     {
         public async ValueTask<string> GetAsync(Uri uri, UserName? userName, Password? password)
         {
@@ -15,10 +15,10 @@ namespace Music2Web.HttpService.Adapters.Driven.Implementation
 
             if (userName != null && password != null)
             {
-                var secret = ComputeHmacSha512(
-                    $"GET{uri.Host}{uri.PathAndQuery}{uri.Fragment}",
-                    password.Value);
-                var authenticationString = $"{userName.Value}:{secret}";
+                var signature = symmetricMessageSigner.ConstructHmacSha512Signature(
+                    new Message($"GET{uri.Host}{uri.PathAndQuery}{uri.Fragment}"),
+                    new Key(password.Value));
+                var authenticationString = $"{userName.Value}:{signature.Value}";
                 var base64EncodedAuthenticationString = Convert.ToBase64String(ASCIIEncoding.ASCII.GetBytes(authenticationString));
                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
             }
@@ -26,23 +26,6 @@ namespace Music2Web.HttpService.Adapters.Driven.Implementation
             var responseMessage = await httpClient.SendAsync(requestMessage).ConfigureAwait(false);
 
             return await responseMessage.Content.ReadAsStringAsync();
-        }
-
-        private string ComputeHmacSha512(string message, string key)
-        {
-            var hash = new StringBuilder(); ;
-            byte[] secretkeyBytes = Encoding.UTF8.GetBytes(key);
-            byte[] inputBytes = Encoding.UTF8.GetBytes(message);
-            using (var hmac = new HMACSHA512(secretkeyBytes))
-            {
-                byte[] hashValue = hmac.ComputeHash(inputBytes);
-                foreach (var theByte in hashValue)
-                {
-                    hash.Append(theByte.ToString("x2"));
-                }
-            }
-
-            return hash.ToString();
         }
     }
 }

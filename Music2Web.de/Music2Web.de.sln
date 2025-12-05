@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music2Web.Navigation", "Mus
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music2Web.HttpService", "Music2Web.HttpService\Music2Web.HttpService.csproj", "{EC3D25C7-984B-4390-80D7-5B0C5DC00EDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music2Web.Content", "Music2Web.Content\Music2Web.Content.csproj", "{171E7F37-BBC2-420F-92D9-309104B7F117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Music2Web.Cryptography", "Music2Web.Cryptography\Music2Web.Cryptography.csproj", "{A017FF99-F6E5-4CCE-BC67-0C4C965839B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +32,14 @@ Global
 		{EC3D25C7-984B-4390-80D7-5B0C5DC00EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3D25C7-984B-4390-80D7-5B0C5DC00EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC3D25C7-984B-4390-80D7-5B0C5DC00EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171E7F37-BBC2-420F-92D9-309104B7F117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171E7F37-BBC2-420F-92D9-309104B7F117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171E7F37-BBC2-420F-92D9-309104B7F117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171E7F37-BBC2-420F-92D9-309104B7F117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A017FF99-F6E5-4CCE-BC67-0C4C965839B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A017FF99-F6E5-4CCE-BC67-0C4C965839B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A017FF99-F6E5-4CCE-BC67-0C4C965839B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A017FF99-F6E5-4CCE-BC67-0C4C965839B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

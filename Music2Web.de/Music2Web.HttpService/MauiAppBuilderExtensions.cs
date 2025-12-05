@@ -13,7 +13,6 @@ namespace Music2Web.HttpService
             builder.Services
                 .AddSingleton<IHttpJsonService, HttpJsonService>()
                 .AddSingleton<IHttpJsonProvider, HttpJsonProvider>()
-                .AddSingleton<ISecretProvider, SecretProvider>()
                 .AddSingleton<IHttpClientAdapter, HttpClientAdapter>();
 
             return builder;
