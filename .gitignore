@@ -404,3 +404,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
 /Music2Web.de/Music2Web.HttpService/Core/SecretProvider.cs
+/Music2Web.de/Music2Web.Cryptography/Core/SecretProvider.cs
