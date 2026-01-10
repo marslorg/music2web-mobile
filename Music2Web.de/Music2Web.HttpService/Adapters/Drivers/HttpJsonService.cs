@@ -13,10 +13,10 @@ namespace Music2Web.HttpService.Adapters.Drivers
         {
             if (withSecretState.Value)
             {
-                return await httpJsonProvider.GetJsonResponseAsync<T>(uri, secretService.UserName, secretService.Password).ConfigureAwait(false);
+                return await httpJsonProvider.GetJsonResponseAsync<T>(uri, secretService.UserName, secretService.Password);
             }
 
-            return await httpJsonProvider.GetJsonResponseAsync<T>(uri).ConfigureAwait(false);
+            return await httpJsonProvider.GetJsonResponseAsync<T>(uri);
         }
     }
 }

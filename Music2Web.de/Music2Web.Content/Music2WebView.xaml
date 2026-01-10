@@ -4,5 +4,5 @@
          xmlns:viewModel="clr-namespace:Music2Web.Content"
          x:Class="Music2Web.Content.Music2WebView"
          x:DataType="viewModel:IMusic2WebViewModel"
-         Source="{Binding Address.Value}"
-         UserAgent="{Binding UserAgent.Value}" />
+         UserAgent="{Binding WebData.UserAgent.Value}"
+         Source="{Binding WebData.Address.Value}" />

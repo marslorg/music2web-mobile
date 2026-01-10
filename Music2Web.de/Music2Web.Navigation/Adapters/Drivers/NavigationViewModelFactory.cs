@@ -11,7 +11,7 @@ namespace Music2Web.Navigation.Adapters.Drivers
         {
             return new NavigationViewModel()
             {
-                Navigation = await navigationDataProvider.GetNavigationItemsAsync().ConfigureAwait(false),
+                Navigation = await navigationDataProvider.GetNavigationItemsAsync(),
             };
         }
     }

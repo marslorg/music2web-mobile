@@ -9,7 +9,6 @@ namespace Music2Web.Content
 {
     public interface IMusic2WebViewModel
     {
-        public Music2WebAddress Address { get; }
-        public Music2WebUserAgent UserAgent { get; }
+        public Music2WebData WebData { get; }
     }
 }

@@ -9,12 +9,12 @@ namespace Music2Web.HttpService.Core
     {
         public async ValueTask<T> GetJsonResponseAsync<T>(Uri uri) where T : class
         {
-            return JsonSerializer.Deserialize<T>(await httpClientAdapter.GetAsync(uri, null, null).ConfigureAwait(false));
+            return JsonSerializer.Deserialize<T>(await httpClientAdapter.GetAsync(uri, null, null));
         }
 
         public async ValueTask<T> GetJsonResponseAsync<T>(Uri uri, UserName userName, Password password) where T : class
         {
-            return JsonSerializer.Deserialize<T>(await httpClientAdapter.GetAsync(uri, userName, password).ConfigureAwait(false));
+            return JsonSerializer.Deserialize<T>(await httpClientAdapter.GetAsync(uri, userName, password));
         }
     }
 }

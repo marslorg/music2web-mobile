@@ -11,7 +11,7 @@ namespace Music2Web.Navigation.Core
     {
         public async ValueTask<IImmutableList<NavigationItem>> GetNavigationItemsAsync()
         {
-            var navigationJsonModel = await httpServiceAdapter.GetJsonResponseAsync<IImmutableList<NavigationItemJsonModel>>(new Uri("https://www.music2web.de/api/1/menu/read")).ConfigureAwait(false);
+            var navigationJsonModel = await httpServiceAdapter.GetJsonResponseAsync<IImmutableList<NavigationItemJsonModel>>(new Uri("https://www.music2web.de/api/1/menu/read"));
 
             var navigationItemList = new List<NavigationItem>();
 

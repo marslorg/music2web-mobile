@@ -23,7 +23,7 @@ namespace Music2Web.HttpService.Adapters.Driven.Implementation
                 requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Basic", base64EncodedAuthenticationString);
             }
 
-            var responseMessage = await httpClient.SendAsync(requestMessage).ConfigureAwait(false);
+            var responseMessage = httpClient.SendAsync(requestMessage).Result;
 
             return await responseMessage.Content.ReadAsStringAsync();
         }
