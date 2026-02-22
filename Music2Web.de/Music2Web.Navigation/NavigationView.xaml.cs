@@ -14,8 +14,8 @@ public partial class NavigationView : ContentPage
 		viewModel.NavigationDrawer = this.navigationDrawer;
     }
 
-    private void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args)
+    private async void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args)
     {
-		this.viewModel.OnNavigationItemSelected(sender, args);
+		await this.viewModel.OnNavigationItemSelectedAsync(sender, args);
     }
 }

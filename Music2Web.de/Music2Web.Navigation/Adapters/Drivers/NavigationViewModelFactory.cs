@@ -5,11 +5,11 @@ using System.Collections.Immutable;
 
 namespace Music2Web.Navigation.Adapters.Drivers
 {
-    internal class NavigationViewModelFactory(INavigationDataProvider navigationDataProvider) : INavigationViewModelFactory
+    internal class NavigationViewModelFactory(INavigationProvider navigationDataProvider) : INavigationViewModelFactory
     {
         public async ValueTask<INavigationViewModel> CreateViewModelAsync()
         {
-            return new NavigationViewModel()
+            return new NavigationViewModel(navigationDataProvider)
             {
                 Navigation = await navigationDataProvider.GetNavigationItemsAsync(),
             };

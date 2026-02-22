@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Music2Web.Content
 {
-    public interface IMusic2WebViewModel
+    public interface IMusic2WebViewModel : IDisposable
     {
         public Music2WebData WebData { get; }
     }

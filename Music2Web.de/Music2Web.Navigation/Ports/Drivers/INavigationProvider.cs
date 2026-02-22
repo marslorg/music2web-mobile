@@ -3,8 +3,10 @@ using System.Collections.Immutable;
 
 namespace Music2Web.Navigation.Ports.Drivers
 {
-    internal interface INavigationDataProvider
+    internal interface INavigationProvider
     {
+        public ValueTask SetCurrentNavigationItemAsync(NavigationItem item);
+
         public ValueTask<IImmutableList<NavigationItem>> GetNavigationItemsAsync();
     }
 }

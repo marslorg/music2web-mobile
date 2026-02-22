@@ -7,8 +7,15 @@ using System.Text.Json.Serialization;
 
 namespace Music2Web.Navigation.Core
 {
-    internal class NavigationDataProvider(IHttpServiceAdapter httpServiceAdapter) : INavigationDataProvider
+    internal class NavigationProvider(
+        IContentServiceAdapter contentServiceAdapter,
+        IHttpServiceAdapter httpServiceAdapter) : INavigationProvider
     {
+        public ValueTask SetCurrentNavigationItemAsync(NavigationItem navigationItem)
+        {
+            return contentServiceAdapter.SetContentAsync(navigationItem);
+        }
+
         public async ValueTask<IImmutableList<NavigationItem>> GetNavigationItemsAsync()
         {
             var navigationJsonModel = await httpServiceAdapter.GetJsonResponseAsync<IImmutableList<NavigationItemJsonModel>>(new Uri("https://www.music2web.de/api/1/menu/read"));

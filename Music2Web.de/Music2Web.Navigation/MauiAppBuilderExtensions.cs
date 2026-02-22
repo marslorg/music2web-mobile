@@ -11,9 +11,10 @@ namespace Music2Web.Navigation
         public static MauiAppBuilder ConfigureNavigation(this MauiAppBuilder builder)
         {
             builder.Services
+                .AddSingleton<IContentServiceAdapter, ContentServiceAdapter>()
+                .AddSingleton<IHttpServiceAdapter, HttpServiceAdapter>()
                 .AddSingleton<INavigationViewModelFactory, NavigationViewModelFactory>()
-                .AddSingleton<INavigationDataProvider, NavigationDataProvider>()
-                .AddSingleton<IHttpServiceAdapter, HttpServiceAdapter>();
+                .AddSingleton<INavigationProvider, NavigationProvider>();
 
             return builder;
         }

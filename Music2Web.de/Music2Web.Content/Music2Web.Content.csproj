@@ -24,11 +24,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Adapters\Driven\Implementation\" />
 	  <Folder Include="Adapters\Driven\Mock\" />
-	  <Folder Include="Core\" />
-	  <Folder Include="Ports\Driven\" />
-	  <Folder Include="Ports\Drivers\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Music2Web.Cryptography\Music2Web.Cryptography.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using Music2Web.Navigation.DataModels;
+using Music2Web.Navigation.Ports.Drivers;
 using Music2Web.Navigation.ValueObjects;
 using Syncfusion.Maui.Toolkit.NavigationDrawer;
 using System.Collections.Immutable;
@@ -9,10 +10,15 @@ namespace Music2Web.Navigation.Adapters.Drivers
 {
     internal class NavigationViewModel : INavigationViewModel
     {
+        private readonly INavigationProvider navigationProvider;
+
         private NavigationItem? selectedNavigationItem;
 
-        public NavigationViewModel()
+        public NavigationViewModel(
+            INavigationProvider navigationProvider)
         {
+            this.navigationProvider = navigationProvider;
+
             ToggleDrawerCommand = new Command(ToggleDrawer);
         }
 
@@ -24,7 +30,7 @@ namespace Music2Web.Navigation.Adapters.Drivers
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public void OnNavigationItemSelected(object sender, SelectionChangedEventArgs args)
+        public async ValueTask OnNavigationItemSelectedAsync(object sender, SelectionChangedEventArgs args)
         {
             if (selectedNavigationItem != null)
             {
@@ -34,6 +40,7 @@ namespace Music2Web.Navigation.Adapters.Drivers
             NavigationDrawer.ToggleDrawer();
             selectedNavigationItem = args.CurrentSelection.FirstOrDefault() as NavigationItem;
             selectedNavigationItem.SelectedBackgroundColor = Color.FromArgb("#e0c0c0");
+            await this.navigationProvider.SetCurrentNavigationItemAsync(selectedNavigationItem);
         }
 
         private void ToggleDrawer()
