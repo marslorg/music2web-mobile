@@ -5,4 +5,5 @@
          x:Class="Music2Web.Content.Music2WebView"
          x:DataType="viewModel:IMusic2WebViewModel"
          UserAgent="{Binding WebData.UserAgent.Value}"
-         Source="{Binding WebData.Address.Value}" />
+         Source="{Binding WebData.Address.Value}"
+         Navigating="OnWebViewNavigating"/>

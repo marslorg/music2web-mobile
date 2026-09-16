@@ -10,5 +10,7 @@ namespace Music2Web.Content
     public interface IMusic2WebViewModel : IDisposable
     {
         public Music2WebData WebData { get; }
+
+        public ValueTask HandleWebViewNavigationAsync(Music2WebAddress music2WebAddress);
     }
 }

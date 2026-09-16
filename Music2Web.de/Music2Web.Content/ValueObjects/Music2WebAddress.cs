@@ -8,7 +8,15 @@
 
         public Music2WebAddress(string? Value)
         {
-            this.value = Value;
+            var result = Value;
+            var trimString = Scheme + this.Host;
+
+            if (result != null && result.StartsWith(trimString))
+            {
+                result = result.Substring(trimString.Length);
+            }
+
+            this.value = result;
         }
 
         public string Value => value != null ? $"{Scheme}{this.Host}{this.value}" : $"{Scheme}{this.Host}";

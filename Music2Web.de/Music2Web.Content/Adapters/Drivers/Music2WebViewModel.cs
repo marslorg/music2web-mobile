@@ -21,6 +21,11 @@ namespace Music2Web.Content.Adapters.Drivers
             this.contentSwitcher.AddListener(this);
         }
 
+        public async ValueTask HandleWebViewNavigationAsync(Music2WebAddress music2WebAddress)
+        {
+            await this.contentSwitcher.SetMusic2WebAddressAsync(music2WebAddress);
+        }
+
         public ValueTask OnWebViewChangedAsync(Music2WebData music2WebData)
         {
             this.WebData = music2WebData;
