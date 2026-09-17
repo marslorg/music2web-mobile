@@ -24,11 +24,12 @@
                      Spacing="8"
                      Padding="0">
             <ActivityIndicator IsRunning="{Binding IsLoading}"
-                               Color="#E00000" />
+                               Color="#E00000"
+                               Scale="2.0" />
             <Label Text="Laden..."
                    HorizontalOptions="Center"
                    TextColor="#E00000"
-                   FontSize="Small" />
+                   FontSize="Medium" />
         </StackLayout>
     </Grid>
 </ContentView>

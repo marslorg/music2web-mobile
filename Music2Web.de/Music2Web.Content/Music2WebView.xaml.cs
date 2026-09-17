@@ -22,11 +22,18 @@ public partial class Music2WebView : ContentView
         if (sender is WebView webView)
         {
             await this.viewModel.HandleWebViewNavigationAsync(new Music2WebAddress(args.Url));
+
+            webView.Navigating -= OnWebViewNavigating;
         }
     }
 
     private void OnWebViewNavigated(object sender, WebNavigatedEventArgs args)
     {
         this.viewModel.IsLoading = false;
+
+        if (sender is WebView webView)
+        {
+            webView.Navigating += OnWebViewNavigating;
+        }
     }
 }
