@@ -11,6 +11,9 @@ namespace Music2Web.Content.Adapters.Drivers
         [ObservableProperty]
         private Music2WebData webData;
 
+        [ObservableProperty]
+        private bool isLoading;
+
         public Music2WebViewModel(
             IContentSwitcher contentSwitcher)
         {

@@ -11,6 +11,8 @@ namespace Music2Web.Content
     {
         public Music2WebData WebData { get; }
 
+        public bool IsLoading { get; set; }
+
         public ValueTask HandleWebViewNavigationAsync(Music2WebAddress music2WebAddress);
     }
 }
